@@ -14,10 +14,13 @@
 
 const EMPFAENGER = process.env.CONTACT_TO || 'lebenshelper@gmail.com';
 
-// Ohne verifizierte Domain erlaubt Resend nur diesen Absender. Sobald die
-// Domain in Resend verifiziert ist, kann CONTACT_FROM z. B. auf
-// "LebensHelper <kontakt@alltagsbegleitunglebenshelper.com>" gesetzt werden.
-const ABSENDER = process.env.CONTACT_FROM || 'LebensHelper <onboarding@resend.dev>';
+// Setzt voraus, dass die Domain in Resend verifiziert ist. Solange das nicht
+// der Fall ist, lehnt Resend den Versand mit 403 ab.
+// Über die Umgebungsvariable CONTACT_FROM lässt sich der Absender ändern,
+// ohne den Code anzufassen.
+const ABSENDER =
+  process.env.CONTACT_FROM ||
+  'LebensHelper Alltagsbegleitung <kontakt@alltagsbegleitunglebenshelper.com>';
 
 const MAX = { name: 120, phone: 60, email: 160, city: 120, message: 3000 };
 
