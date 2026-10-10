@@ -1,0 +1,9 @@
+# Dateien, die nicht ins Web gehoeren.
+# Auf Vercel ersetzt vercel.json die .htaccess vollstaendig.
+
+server.ps1
+.htaccess
+README.md
+.gitignore
+*.docx
+*.zip
