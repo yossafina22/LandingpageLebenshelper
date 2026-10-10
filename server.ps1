@@ -3,7 +3,7 @@ $listener.Prefixes.Add("http://localhost:8080/")
 $listener.Start()
 Write-Output "Server running at http://localhost:8080/"
 $dir = $PSScriptRoot
-if (-not $dir) { $dir = "C:\Users\PC\OneDrive\Dokumente\Onedrive\Desktop\WebAlltagsbegleitung" }
+if (-not $dir) { $dir = "C:\Users\PC\Projekte\LandingpageLebenshelper" }
 
 while ($listener.IsListening) {
     try {
