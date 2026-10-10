@@ -150,8 +150,22 @@ module.exports = async function handler(req, res) {
     });
 
     if (!antwort.ok) {
-      // Fehlerdetails nur ins Serverprotokoll, nie an den Besucher
-      console.error('Resend-Fehler', antwort.status, await antwort.text());
+      const rohtext = await antwort.text();
+      console.error('Resend-Fehler', antwort.status, rohtext);
+
+      // Kurzdiagnose nur auf ausdrückliche Anforderung (?diag=1).
+      // Enthält nie den API-Schlüssel – nur Statuscode und Fehlername von
+      // Resend. Nach der Inbetriebnahme kann dieser Block entfernt werden.
+      if (req.query && req.query.diag === '1') {
+        let name = null, meldung = null;
+        try { const j = JSON.parse(rohtext); name = j.name || null; meldung = j.message || null; } catch (_) {}
+        return res.status(502).json({
+          ok: false,
+          fehler: 'Versand fehlgeschlagen',
+          diagnose: { status: antwort.status, name, meldung, absender: ABSENDER, empfaenger: EMPFAENGER }
+        });
+      }
+
       return res.status(502).json({ ok: false, fehler: 'Versand fehlgeschlagen' });
     }
 
