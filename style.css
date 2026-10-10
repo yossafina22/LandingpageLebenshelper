@@ -146,11 +146,18 @@ body.js-pages [data-page].page-active {
   animation: page-erscheinen 0.28s ease-out;
 }
 
-/* Überschrift bekommt beim Seitenwechsel den Fokus – ohne hässlichen Rahmen,
-   der Fokus bleibt für Tastaturnutzer über :focus-visible erhalten. */
-body.js-pages [data-page] h1[tabindex]:focus:not(:focus-visible),
-body.js-pages [data-page] h2[tabindex]:focus:not(:focus-visible) {
+/* Beim Seitenwechsel bekommt die Überschrift den Fokus, damit Screenreader
+   die neue Seite ankündigen. Sichtbar muss dieser Fokus nicht sein: die
+   Überschriften tragen tabindex="-1" und sind per Tab-Taste gar nicht
+   erreichbar – es geht also keine Tastaturmarkierung verloren.
+
+   :focus-visible genügte hier nicht: beim ersten Laden der Seite wertet der
+   Browser den programmatisch gesetzten Fokus als sichtbar und zeichnete
+   einen schwarzen Rahmen um die Hauptüberschrift. */
+[data-page] h1[tabindex="-1"]:focus,
+[data-page] h2[tabindex="-1"]:focus {
   outline: none;
+  box-shadow: none;
 }
 
 @keyframes page-erscheinen {
@@ -1221,6 +1228,45 @@ body.js-pages [data-page] h2[tabindex]:focus:not(:focus-visible) {
 }
 
 /* Success Alert */
+/* Honeypot gegen Bots: für Menschen unsichtbar, aber nicht per display:none,
+   denn manche Bots überspringen ausgeblendete Felder gezielt. Das Feld wird
+   stattdessen aus dem sichtbaren Bereich geschoben. */
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Hinweis, wenn der Versand nicht geklappt hat */
+.form-error-box {
+  display: none;
+  margin-top: 1rem;
+  padding: 1rem 1.25rem;
+  background-color: #FDECEC;
+  border: 2px solid #D14343;
+  border-radius: var(--radius-md);
+  color: #8A1F1F;
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+}
+
+.form-error-box.sichtbar {
+  display: block;
+}
+
+.form-error-box a {
+  color: #8A1F1F;
+  text-decoration: underline;
+}
+
+/* Knopf während des Versands */
+#submit-form-btn:disabled {
+  opacity: 0.65;
+  cursor: progress;
+}
+
 /* Standardmäßig ausgeblendet. Früher stand das als style="display:none"
    im HTML – als Inline-Style hätte es eine strenge Content-Security-Policy
    verhindert. JavaScript blendet die Meldung nach dem Absenden ein. */

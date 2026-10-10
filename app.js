@@ -339,18 +339,20 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
      5. Kontaktformular
      --------------------------------------------------------------------------
-     Die Seite hat keinen Server. Damit keine Anfrage verloren geht, wird aus
-     den Eingaben eine fertige E-Mail an KONTAKT.email erzeugt und im
-     E-Mail-Programm des Besuchers geöffnet. Der Besucher muss sie dort noch
-     absenden – darauf weist die Bestätigung ausdrücklich hin.
+     Das Formular sendet die Angaben an /api/contact. Diese Funktion läuft auf
+     dem Server (Vercel) und verschickt die Anfrage per Resend als E-Mail. Der
+     API-Schlüssel liegt ausschließlich in den Umgebungsvariablen des Servers
+     und erreicht den Browser nie.
 
-     Wenn die Seite später bei einem Hoster liegt, kann hier stattdessen ein
-     echter Formular-Dienst eingebunden werden (z. B. Formspree oder das
-     Formular-Modul des Hosters).
+     Schlägt der Versand fehl, geht die Anfrage nicht verloren: der Besucher
+     bekommt dann die vorbereitete E-Mail und die Telefonnummer angeboten.
      ========================================================================== */
   const form = document.getElementById('consultation-form');
   const successMessage = document.getElementById('form-success-message');
   const resetBtn = document.getElementById('reset-form-btn');
+  const submitBtn = document.getElementById('submit-form-btn');
+  const btnLabel = submitBtn ? submitBtn.querySelector('.btn-label') : null;
+  const fehlerBox = document.getElementById('form-error-box');
 
   if (form) {
     const inputName = document.getElementById('client-name');
@@ -420,7 +422,46 @@ document.addEventListener('DOMContentLoaded', () => {
         '&body=' + encodeURIComponent(zeilen.join('\n'));
     }
 
-    form.addEventListener('submit', (e) => {
+    /* Die Angaben für den Serverversand einsammeln */
+    function sammleDaten() {
+      const pgSelect = document.getElementById('client-pflegegrad');
+      const honeypot = document.getElementById('website');
+      return {
+        name: inputName.value.trim(),
+        phone: inputPhone.value.trim(),
+        email: inputEmail.value.trim(),
+        city: inputCity.value.trim(),
+        pflegegrad: pgSelect ? pgSelect.options[pgSelect.selectedIndex].text : '',
+        message: inputMessage.value.trim(),
+        services: Array.from(
+          form.querySelectorAll('input[name="services"]:checked')
+        ).map(cb => cb.value),
+        website: honeypot ? honeypot.value : ''
+      };
+    }
+
+    function zeigeErfolg() {
+      fehlerBox.textContent = '';
+      fehlerBox.classList.remove('sichtbar');
+      form.style.display = 'none';
+      successMessage.style.display = 'block';
+      successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    /* Fällt der Versand aus (Server nicht erreichbar, Dienst gestört), geht
+       die Anfrage nicht verloren: der Besucher bekommt die vorbereitete
+       E-Mail und die Telefonnummer angeboten. */
+    function zeigeFehler() {
+      fehlerBox.innerHTML =
+        'Die Anfrage konnte gerade nicht gesendet werden. ' +
+        '<a href="' + buildMailto() + '">Per E-Mail senden</a> oder anrufen: ' +
+        '<a href="tel:' + KONTAKT.telefon.replace(/\s/g, '') + '"><strong>'
+        + KONTAKT.telefon + '</strong></a>';
+      fehlerBox.classList.add('sichtbar');
+      fehlerBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const isNameValid = validateField(inputName);
@@ -430,16 +471,36 @@ document.addEventListener('DOMContentLoaded', () => {
       const isPrivacyValid = privacyAgreement.checked;
       privacyAgreement.closest('.form-group').classList.toggle('has-error', !isPrivacyValid);
 
-      if (isNameValid && isPhoneValid && isCityValid && isPrivacyValid) {
-        window.location.href = buildMailto();
-
-        form.style.display = 'none';
-        successMessage.style.display = 'block';
-        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      } else {
-        // Zum ersten Fehler springen, damit er nicht übersehen wird
+      if (!(isNameValid && isPhoneValid && isCityValid && isPrivacyValid)) {
         const firstError = form.querySelector('.has-error');
         if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      // Doppelklicks verhindern und Rückmeldung geben
+      submitBtn.disabled = true;
+      const altesLabel = btnLabel ? btnLabel.textContent : '';
+      if (btnLabel) btnLabel.textContent = 'Wird gesendet …';
+      fehlerBox.classList.remove('sichtbar');
+
+      try {
+        const antwort = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(sammleDaten())
+        });
+        const daten = await antwort.json().catch(() => ({}));
+
+        if (antwort.ok && daten.ok) {
+          zeigeErfolg();
+        } else {
+          zeigeFehler();
+        }
+      } catch (err) {
+        zeigeFehler();
+      } finally {
+        submitBtn.disabled = false;
+        if (btnLabel) btnLabel.textContent = altesLabel;
       }
     });
 
@@ -448,6 +509,7 @@ document.addEventListener('DOMContentLoaded', () => {
         form.reset();
         form.style.display = 'block';
         successMessage.style.display = 'none';
+        fehlerBox.classList.remove('sichtbar');
         form.scrollIntoView({ behavior: 'smooth', block: 'center' });
       });
     }

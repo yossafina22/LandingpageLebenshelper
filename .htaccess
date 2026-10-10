@@ -48,13 +48,13 @@
   #   style-src   'self'       kein Inline-CSS (kein style="..."-Attribut)
   #   img-src     'self'       nur eigene Bilder
   #   font-src    'self'       Schriften liegen lokal
-  #   connect-src 'none'       die Seite macht keine Hintergrundanfragen
+  #   connect-src 'self'       die Seite macht keine Hintergrundanfragen
   #   frame-src   'none'       keine eingebetteten Fremdinhalte
   #   object-src  'none'       kein Flash/Java/Plugin-Inhalt
   #   base-uri    'self'       <base>-Umleitung unmöglich
   #   form-action 'self'       Formular kann nicht nach außen umgebogen werden
   #   frame-ancestors 'none'   Seite darf nicht in fremde iframes (Clickjacking)
-  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; media-src 'none'; worker-src 'none'; manifest-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none'; media-src 'none'; worker-src 'none'; manifest-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
 
   # Verhindert, dass der Browser Dateitypen errät (MIME-Sniffing)
   Header always set X-Content-Type-Options "nosniff"

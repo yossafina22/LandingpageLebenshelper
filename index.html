@@ -679,7 +679,7 @@
         <div class="contact-form-col">
           <div class="form-card">
             <h3>Kostenfreie Erstberatung anfragen</h3>
-            <p class="text-sm text-muted">Am schnellsten erreichen Sie uns telefonisch oder per WhatsApp. Alternativ füllen Sie das Formular aus – es öffnet eine vorbereitete E-Mail an uns.</p>
+            <p class="text-sm text-muted">Am schnellsten erreichen Sie uns telefonisch oder per WhatsApp. Alternativ füllen Sie einfach das Formular aus – wir melden uns innerhalb von 24 Stunden bei Ihnen.</p>
 
             <div class="form-direct-actions">
               <a href="tel:+491772642539" class="btn btn-primary">📞 Jetzt anrufen</a>
@@ -776,17 +776,26 @@
                 <div class="error-feedback" id="privacy-error">Bitte bestätigen Sie die Datenschutzerklärung.</div>
               </div>
 
+              <!-- Honeypot: für Menschen unsichtbar. Nur Bots füllen das Feld
+                   aus – solche Anfragen werden verworfen. Kein Captcha nötig. -->
+              <div class="honeypot" aria-hidden="true">
+                <label for="website">Dieses Feld bitte leer lassen</label>
+                <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+              </div>
+
               <button type="submit" class="btn btn-primary btn-block btn-lg" id="submit-form-btn">
-                <span>E-Mail-Anfrage vorbereiten</span>
+                <span class="btn-label">Anfrage absenden</span>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </button>
+
+              <div class="form-error-box" id="form-error-box" role="alert"></div>
             </form>
 
             <div id="form-success-message" class="success-alert" role="status">
-              <div class="success-icon" aria-hidden="true">✉️</div>
-              <h4>Ihre E-Mail ist vorbereitet</h4>
-              <p>Wir haben Ihr E-Mail-Programm mit allen Angaben geöffnet. <strong>Bitte senden Sie die E-Mail dort noch ab</strong> – erst dann erreicht uns Ihre Anfrage.</p>
-              <p class="text-sm">Hat das nicht geklappt? Rufen Sie uns einfach an unter <a href="tel:+491772642539"><strong>+49 177 2642539</strong></a> oder schreiben Sie an <a href="mailto:lebenshelper@gmail.com">lebenshelper@gmail.com</a>.</p>
+              <div class="success-icon" aria-hidden="true">✅</div>
+              <h4>Vielen Dank für Ihre Anfrage!</h4>
+              <p>Ihre Nachricht ist bei mir angekommen. Ich melde mich <strong>innerhalb von 24 Stunden</strong> bei Ihnen – telefonisch oder per E-Mail, ganz wie es Ihnen lieber ist.</p>
+              <p class="text-sm">Es eilt? Rufen Sie mich einfach direkt an unter <a href="tel:+491772642539"><strong>+49 177 2642539</strong></a>.</p>
               <button type="button" class="btn btn-secondary btn-sm" id="reset-form-btn">Weitere Anfrage stellen</button>
             </div>
           </div>
