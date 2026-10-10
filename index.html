@@ -855,6 +855,91 @@
     <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.8 14.17c-.25.69-1.44 1.32-1.99 1.37-.53.05-1.02.24-3.44-.72-2.9-1.14-4.73-4.1-4.87-4.29-.14-.19-1.16-1.54-1.16-2.94 0-1.4.73-2.08 1-2.37.25-.28.55-.35.73-.35.18 0 .37 0 .53.01.17.01.4-.06.62.48.25.59.84 2.04.91 2.19.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.17.28.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.41.28.14.45.12.61-.07.17-.19.7-.82.89-1.1.18-.28.37-.23.62-.14.25.09 1.6.76 1.87.9.28.14.46.21.53.33.07.11.07.65-.18 1.34Z"/></svg>
   </a>
 
+  <!-- Strukturierte Daten für Suchmaschinen (schema.org).
+       Für Besucher unsichtbar. Google liest daraus Name, Anschrift,
+       Telefonnummer, Einsatzgebiete und Leistungen und kann das Angebot
+       in der lokalen Suche entsprechend darstellen.
+
+       Bewusst NICHT als MedicalBusiness ausgezeichnet: es werden keine
+       medizinischen Leistungen erbracht. Öffnungszeiten, Preise und
+       Bewertungen fehlen, weil dazu keine gesicherten Angaben vorliegen –
+       erfundene Werte wären ein Verstoß gegen Googles Richtlinien. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://alltagsbegleitunglebenshelper.com/#business",
+    "name": "LebensHelper Alltagsbegleitung",
+    "alternateName": "Alltagsbegleitung LebensHelper",
+    "description": "Anerkanntes Angebot zur Unterstützung im Alltag nach § 45a SGB XI (NRW). Begleitung und Entlastung für Seniorinnen und Senioren sowie für pflegende Angehörige in Wuppertal, Solingen, Remscheid und Umgebung. Abrechnung über die Pflegekasse möglich.",
+    "slogan": "Professionell · Vertrauenswürdig · Menschlich",
+    "url": "https://alltagsbegleitunglebenshelper.com",
+    "logo": "https://alltagsbegleitunglebenshelper.com/logo.png",
+    "image": "https://alltagsbegleitunglebenshelper.com/logo.png",
+    "telephone": "+49-177-2642539",
+    "email": "lebenshelper@gmail.com",
+    "inLanguage": "de",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Schönebecker Straße 44",
+      "postalCode": "42283",
+      "addressLocality": "Wuppertal",
+      "addressRegion": "Nordrhein-Westfalen",
+      "addressCountry": "DE"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Serge Raoul Foadjo Fotso",
+      "jobTitle": "Anerkannter Alltagsbegleiter für Senioren",
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "degree",
+          "name": "Bachelor of Arts Betriebswirtschaft"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "certification",
+          "name": "Anerkanntes Angebot zur Unterstützung im Alltag nach § 45a SGB XI (NRW)"
+        }
+      ]
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Wuppertal" },
+      { "@type": "City", "name": "Solingen" },
+      { "@type": "City", "name": "Remscheid" }
+    ],
+    "serviceType": "Alltagsbegleitung und Seniorenbetreuung",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Leistungen der Alltagsbegleitung",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Begleitung im Alltag" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gemeinsame Spaziergänge" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Arzt- und Terminbegleitung" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Einkaufen & Botengänge" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Unterstützung im Haushalt" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gespräche & Aktivierung" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Entlastung pflegender Angehöriger" } }
+      ]
+    },
+    "knowsAbout": [
+      "Entlastungsbetrag nach § 45b SGB XI",
+      "Verhinderungspflege nach § 39 SGB XI",
+      "Kurzzeitpflege nach § 42 SGB XI",
+      "Antragstellung bei der Pflegekasse"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Kundenservice",
+      "telephone": "+49-177-2642539",
+      "email": "lebenshelper@gmail.com",
+      "availableLanguage": ["de"],
+      "areaServed": "DE"
+    }
+  }
+  </script>
+
   <script src="app.js"></script>
 </body>
 </html>
