@@ -1,0 +1,11 @@
+# robots.txt – LebensHelper Alltagsbegleitung
+# https://alltagsbegleitunglebenshelper.com
+
+User-agent: *
+Allow: /
+
+# Interne Dateien gehoeren nicht in den Suchindex
+Disallow: /404.html
+Disallow: /fonts/
+
+Sitemap: https://alltagsbegleitunglebenshelper.com/sitemap.xml

@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Alltagsbegleitung LebensHelper – professionell, vertrauenswürdig, menschlich. Anerkanntes Angebot zur Unterstützung im Alltag nach § 45a SGB XI (NRW) in Wuppertal, Solingen, Remscheid & Umgebung. Abrechnung über die Pflegekasse möglich.">
+  <meta name="keywords" content="Alltagsbegleitung Wuppertal, Alltagsbegleiter Solingen, Seniorenbetreuung Remscheid, § 45a SGB XI NRW, Entlastungsbetrag, Pflegekasse">
+  <meta name="author" content="Serge Raoul Foadjo Fotso – LebensHelper Alltagsbegleitung">
+  <title>LebensHelper | Ihre Alltagsbegleitung in Wuppertal, Solingen & Remscheid</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="LebensHelper | Ihre Alltagsbegleitung">
+  <meta property="og:description" content="Professionell, vertrauenswürdig, menschlich. Unterstützung im Alltag in Wuppertal, Solingen, Remscheid & Umgebung. Kostenfreie Erstberatung bei Ihnen zu Hause.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:url" content="https://alltagsbegleitunglebenshelper.com">
+  <meta property="og:image" content="https://alltagsbegleitunglebenshelper.com/logo.png">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="logo.png">
+
+  <!-- Schriften lokal gehostet – keine Verbindung zu Google, keine
+       Übertragung von Besucher-IP-Adressen an Dritte. -->
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Announcement / Info Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <div class="top-bar-badge">
+        <span class="badge-dot"></span> Anerkanntes Angebot zur Unterstützung im Alltag nach § 45a SGB XI (NRW)
+      </div>
+      <div class="top-bar-actions">
+        <a href="tel:+491772642539" class="phone-link">📞 <strong>+49 177 2642539</strong></a>
+        <div class="a11y-controls" aria-label="Bedienungshilfen">
+          <span class="a11y-label">Schriftgröße:</span>
+          <button id="font-decrease-btn" class="a11y-btn" title="Schrift verkleinern" aria-label="Schrift verkleinern">A-</button>
+          <button id="font-reset-btn" class="a11y-btn" title="Standardgröße" aria-label="Standardschriftgröße">A</button>
+          <button id="font-increase-btn" class="a11y-btn" title="Schrift vergrößern" aria-label="Schrift vergrößern">A+</button>
+          <button id="contrast-toggle-btn" class="a11y-btn contrast-btn" title="Kontrast umschalten" aria-label="Kontrastmodus umschalten">🌓 Kontrast</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="site-header" id="main-header">
+    <div class="container header-container">
+      <a href="#hero" class="brand-logo" id="nav-brand-logo">
+        <!-- Original-Logo. alt bleibt leer, weil der Markenname direkt
+             daneben steht – sonst würde er doppelt vorgelesen. -->
+        <img src="logo.png" class="logo-icon" width="104" height="104" alt="" aria-hidden="true">
+        <div class="logo-text">
+          <span class="logo-title">LebensHelper</span>
+          <span class="logo-sub">Ihre Alltagsbegleitung</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" id="main-navigation" aria-label="Hauptnavigation">
+        <ul class="nav-list">
+          <li><a href="#leistungen" class="nav-link">Leistungen</a></li>
+          <li><a href="#pflegekasse" class="nav-link">Finanzierung</a></li>
+          <li><a href="#ueber-uns" class="nav-link">Über uns</a></li>
+          <li><a href="#rechner" class="nav-link">Budget-Rechner</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+          <li><a href="#kontakt" class="nav-link nav-btn-cta">Kostenfreie Erstberatung</a></li>
+        </ul>
+      </nav>
+
+      <button id="mobile-menu-toggle" class="mobile-toggle" aria-label="Menü öffnen" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- Seite: Startseite -->
+    <section class="hero-section" id="hero" data-page="hero">
+      <div class="container hero-grid">
+        <div class="hero-text-col">
+          <div class="hero-tag">
+            <span class="tag-icon">🌿</span> Professionell &middot; Vertrauenswürdig &middot; Menschlich
+          </div>
+          <h1 class="hero-title">
+            <span class="hero-title-main">Ihre Alltagsbegleitung</span>
+            <span class="hero-title-sub">in Wuppertal, Solingen, Remscheid und Umgebung</span>
+          </h1>
+          <p class="hero-lead">
+            Selbstbestimmt und sicher im eigenen Zuhause leben. Wir begleiten Sie im Alltag, bei Spaziergängen, Arzt- und Behördenterminen, beim Einkaufen und im Haushalt – und entlasten pflegende Angehörige.
+          </p>
+
+          <div class="hero-highlights">
+            <div class="highlight-item">
+              <span class="check-icon">✓</span>
+              <span><strong>Anerkanntes Angebot</strong> zur Unterstützung im Alltag nach § 45a SGB XI (NRW)</span>
+            </div>
+            <div class="highlight-item">
+              <span class="check-icon">✓</span>
+              <span><strong>Abrechnung über die Pflegekasse</strong> möglich</span>
+            </div>
+            <div class="highlight-item">
+              <span class="check-icon">✓</span>
+              <span><strong>Private Buchung</strong> auch ohne Pflegegrad möglich</span>
+            </div>
+          </div>
+
+          <div class="hero-cta-group">
+            <a href="#kontakt" class="btn btn-primary btn-lg" id="hero-cta-contact">
+              <span>Kostenfreie Erstberatung anfragen</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://wa.me/491772642539" class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener" id="hero-cta-whatsapp">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.8 14.17c-.25.69-1.44 1.32-1.99 1.37-.53.05-1.02.24-3.44-.72-2.9-1.14-4.73-4.1-4.87-4.29-.14-.19-1.16-1.54-1.16-2.94 0-1.4.73-2.08 1-2.37.25-.28.55-.35.73-.35.18 0 .37 0 .53.01.17.01.4-.06.62.48.25.59.84 2.04.91 2.19.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.17.28.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.41.28.14.45.12.61-.07.17-.19.7-.82.89-1.1.18-.28.37-.23.62-.14.25.09 1.6.76 1.87.9.28.14.46.21.53.33.07.11.07.65-.18 1.34Z"/></svg>
+              <span>WhatsApp</span>
+            </a>
+          </div>
+
+          <div class="trust-metrics">
+            <div class="metric-item">
+              <p class="metric-quote">„Wir nehmen uns Zeit – ohne Zeitdruck.“</p>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-item">
+              <p class="metric-num">Wuppertal &middot; Solingen &middot; Remscheid</p>
+              <p class="metric-label">Unsere Einsatzgebiete & Umgebung</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card-col">
+          <div class="hero-showcase-card">
+            <div class="showcase-badge">Für Sie da</div>
+            <div class="showcase-header">
+              <div class="avatar-group">
+                <div class="avatar avatar-1" aria-hidden="true">🤝</div>
+                <div class="avatar avatar-2" aria-hidden="true">👨‍🦳</div>
+              </div>
+              <div>
+                <h3>Raoul Fotso</h3>
+                <p class="showcase-role">Ihr Ansprechpartner vor Ort</p>
+              </div>
+            </div>
+
+            <ul class="showcase-credentials">
+              <li><span class="cred-icon" aria-hidden="true">🎓</span> Bachelor of Arts Betriebswirtschaft</li>
+              <li><span class="cred-icon" aria-hidden="true">✓</span> Anerkannter Alltagsbegleiter für Senioren nach § 45a SGB XI</li>
+            </ul>
+
+            <div class="quick-check-box">
+              <h4>Kostenfreie Erstberatung bei Ihnen zu Hause</h4>
+              <p class="text-sm">Wir kommen unverbindlich zu Ihnen, hören zu und informieren Sie über Ihre Möglichkeiten – auch zur Kostenübernahme durch die Pflegekasse.</p>
+              <a href="#pflegekasse" class="link-arrow">Mehr zur Finanzierung erfahren →</a>
+            </div>
+
+            <ul class="showcase-contact-list">
+              <li>
+                <span class="contact-mini-icon" aria-hidden="true">📞</span>
+                <a href="tel:+491772642539">+49 177 2642539</a>
+              </li>
+              <li>
+                <span class="contact-mini-icon" aria-hidden="true">💬</span>
+                <a href="https://wa.me/491772642539" target="_blank" rel="noopener">WhatsApp: +49 177 2642539</a>
+              </li>
+              <li>
+                <span class="contact-mini-icon" aria-hidden="true">✉️</span>
+                <a href="mailto:lebenshelper@gmail.com">lebenshelper@gmail.com</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seite: Leistungen -->
+    <section class="section services-section" id="leistungen" data-page="leistungen">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">Unsere Leistungen</span>
+          <h2 class="section-title">Wie wir Sie und Ihre Familie unterstützen</h2>
+          <p class="section-desc">Wir bieten keine medizinische Behandlungspflege, sondern zwischenmenschliche Betreuung, Gesellschaft und praktische Unterstützung im Alltag.</p>
+        </div>
+
+        <div class="services-grid">
+          <!-- 1 -->
+          <div class="service-card" id="service-card-1">
+            <div class="service-icon-box bg-petrol">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="service-card-title">Begleitung im Alltag</h3>
+            <p class="service-card-text">Eine verlässliche Begleitung an Ihrer Seite – für Struktur, Sicherheit und Gesellschaft im täglichen Leben.</p>
+            <ul class="service-card-features">
+              <li>Feste Bezugsperson</li>
+              <li>Stundenweise & flexibel</li>
+            </ul>
+          </div>
+
+          <!-- 2 -->
+          <div class="service-card" id="service-card-2">
+            <div class="service-icon-box bg-gruen">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2v6"/><path d="M5 10c0 4 3 8 7 12 4-4 7-8 7-12a7 7 0 0 0-14 0Z"/><path d="M9 10h6"/></svg>
+            </div>
+            <h3 class="service-card-title">Gemeinsame Spaziergänge</h3>
+            <p class="service-card-text">Frische Luft im eigenen Tempo – im Park, in der Nachbarschaft oder auf dem Weg ins Café. Ohne Eile, ohne Druck.</p>
+            <ul class="service-card-features">
+              <li>Spaziergänge nach Ihrem Tempo</li>
+              <li>Ausflüge & Aktivitäten</li>
+            </ul>
+          </div>
+
+          <!-- 3 -->
+          <div class="service-card" id="service-card-3">
+            <div class="service-icon-box bg-petrol">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="m9 16 2 2 4-4"/></svg>
+            </div>
+            <h3 class="service-card-title">Arzt- und Terminbegleitung</h3>
+            <p class="service-card-text">Sichere Begleitung zu Arztterminen, Therapien, Behörden und Ämtern – hin, zurück und währenddessen an Ihrer Seite.</p>
+            <ul class="service-card-features">
+              <li>Arzt-, Therapie- & Behördentermine</li>
+              <li>Unterstützung bei Wegen & Treppen</li>
+            </ul>
+          </div>
+
+          <!-- 4 -->
+          <div class="service-card" id="service-card-4">
+            <div class="service-icon-box bg-gruen">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+            </div>
+            <h3 class="service-card-title">Einkaufen & Botengänge</h3>
+            <p class="service-card-text">Gemeinsam oder für Sie: Lebensmitteleinkäufe, Apothekengänge, Post und alle kleinen Erledigungen des Alltags.</p>
+            <ul class="service-card-features">
+              <li>Wocheneinkauf & Apotheke</li>
+              <li>Post und Besorgungen</li>
+            </ul>
+          </div>
+
+          <!-- 5 -->
+          <div class="service-card" id="service-card-5">
+            <div class="service-icon-box bg-petrol">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <h3 class="service-card-title">Unterstützung im Haushalt</h3>
+            <p class="service-card-text">Hilfe bei leichten Haushaltsaufgaben: Ordnung halten, Blumen gießen, Wäsche, Post sortieren und den Tag strukturieren.</p>
+            <ul class="service-card-features">
+              <li>Leichte Haushaltshilfe</li>
+              <li>Struktur im Tagesablauf</li>
+            </ul>
+          </div>
+
+          <!-- 6 -->
+          <div class="service-card" id="service-card-6">
+            <div class="service-icon-box bg-gruen">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h3 class="service-card-title">Gespräche & Aktivierung</h3>
+            <p class="service-card-text">Ein offenes Ohr, Zeit für Erinnerungen, gemeinsame Hobbys, Spiele und Gedächtnistraining – gegen die Einsamkeit.</p>
+            <ul class="service-card-features">
+              <li>Zuhören & herzlicher Austausch</li>
+              <li>Geistige Aktivierung & Spiele</li>
+            </ul>
+          </div>
+
+          <!-- 7 -->
+          <div class="service-card" id="service-card-7">
+            <div class="service-icon-box bg-petrol">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </div>
+            <h3 class="service-card-title">Entlastung pflegender Angehöriger</h3>
+            <p class="service-card-text">Pflegende Angehörige brauchen Pausen. Wir übernehmen stundenweise die Betreuung, damit Sie neue Kraft schöpfen können.</p>
+            <ul class="service-card-features">
+              <li>Stundenweise Entlastung</li>
+              <li>Verlässliche Absprachen</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="services-note">
+          <strong>Wir nehmen uns Zeit – ohne Zeitdruck.</strong> Gerne informieren wir Sie unverbindlich über Ihre Möglichkeiten.
+        </p>
+      </div>
+    </section>
+
+    <!-- Seite: Finanzierung -->
+    <section class="section funding-section" id="pflegekasse" data-page="pflegekasse">
+      <div class="container">
+        <div class="funding-card-wrapper">
+          <div class="funding-info">
+            <span class="section-subtitle">Finanzierung</span>
+            <h2 class="section-title">So kann Ihre Alltagsbegleitung finanziert werden</h2>
+            <p>
+              Als anerkanntes Angebot zur Unterstützung im Alltag nach <strong>§ 45a SGB XI (NRW)</strong> können unsere Leistungen in vielen Fällen über die Pflegekasse abgerechnet werden. Personen mit einem anerkannten <strong>Pflegegrad (1 bis 5)</strong> steht dafür der <strong>Entlastungsbetrag nach § 45b SGB XI</strong> zu:
+            </p>
+            <div class="price-callout">
+              <span class="price-amount" id="entlastung-amount">131 €</span>
+              <span class="price-term">pro Monat (<span id="entlastung-amount-year">1.572 €</span> pro Jahr)</span>
+            </div>
+
+            <div class="funding-points">
+              <div class="point-item">
+                <span class="point-bullet">🔹</span>
+                <div>
+                  <strong>Zusätzliches Budget:</strong> Der Entlastungsbetrag wird zusätzlich zum Pflegegeld gewährt und nicht darauf angerechnet.
+                </div>
+              </div>
+              <div class="point-item">
+                <span class="point-bullet">🔹</span>
+                <div>
+                  <strong>Abrechnung über die Pflegekasse möglich:</strong> Wir unterstützen Sie bei den Formalitäten, damit für Sie möglichst wenig Aufwand entsteht.
+                </div>
+              </div>
+              <div class="point-item">
+                <span class="point-bullet">🔹</span>
+                <div>
+                  <strong>Verhinderungs- und Kurzzeitpflege ab Pflegegrad 2:</strong> Beide Leistungen (§ 39 und § 42 SGB XI) sind zu einem gemeinsamen Jahresbudget von <strong>3.539 €</strong> zusammengefasst und können für die Unterstützung im Alltag eingesetzt werden – flexibel, ohne getrennte Anträge und ohne sechsmonatige Vorpflegezeit.
+                </div>
+              </div>
+              <div class="point-item">
+                <span class="point-bullet">🔹</span>
+                <div>
+                  <strong>Private Buchung ohne Pflegegrad möglich:</strong> Sie brauchen keinen Pflegegrad, um uns zu buchen. Sprechen Sie uns einfach auf unsere Konditionen an.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="funding-box">
+            <div class="funding-badge">Wichtig zu wissen</div>
+            <h3>Verfallen Ihre Ansprüche?</h3>
+            <p>Nicht genutzte Entlastungsbeträge können angespart und in der Regel bis <strong>30. Juni des Folgejahres</strong> eingelöst werden.</p>
+            <hr class="divider">
+            <h4>Sie sind unsicher, was Ihnen zusteht?</h4>
+            <p class="text-sm">Kein Problem. In der kostenfreien Erstberatung bei Ihnen zu Hause schauen wir das gemeinsam an – unverbindlich und in Ruhe.</p>
+            <a href="#kontakt" class="btn btn-primary btn-block">Jetzt kostenfrei beraten lassen</a>
+          </div>
+        </div>
+
+        <!-- Übersicht der monatlichen Ansprüche -->
+        <div class="budget-table-wrap">
+          <h3 class="budget-table-title">Ihre monatlichen Leistungsansprüche im Überblick</h3>
+
+          <table class="budget-table">
+            <caption class="visually-hidden">
+              Monatliche und jährliche Leistungsansprüche der Pflegekasse nach Pflegegrad
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Pflegegrad</th>
+                <th scope="col">Verhinderungs- &amp; Kurzzeitpflege <span class="th-sub">(jährlich)</span></th>
+                <th scope="col">Verhinderungs- &amp; Kurzzeitpflege <span class="th-sub">(monatlich)</span></th>
+                <th scope="col">Entlastungs&shy;betrag <span class="th-sub">(monatlich)</span></th>
+                <th scope="col">Gesamt <span class="th-sub">(monatlich, max.)</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Pflegegrad 1</th>
+                <td data-label="Verhinderungs- &amp; Kurzzeitpflege (jährlich)">–</td>
+                <td data-label="Verhinderungs- &amp; Kurzzeitpflege (monatlich)">–</td>
+                <td data-label="Entlastungsbetrag (monatlich)">131,00 €</td>
+                <td data-label="Gesamt (monatlich, max.)" class="cell-total">131,00 €</td>
+              </tr>
+              <tr>
+                <th scope="row">Pflegegrad 2</th>
+                <td data-label="Verhinderungs- &amp; Kurzzeitpflege (jährlich)">3.539,00 €</td>
+                <td data-label="Verhinderungs- &amp; Kurzzeitpflege (monatlich)">294,90 €</td>
+                <td data-label="Entlastungsbetrag (monatlich)">131,00 €</td>
+                <td data-label="Gesamt (monatlich, max.)" class="cell-total">425,90 €</td>
+              </tr>
+              <tr>
+                <th scope="row">Pflegegrad 3</th>
+                <td data-label="Verhinderungs- &amp; Kurzzeitpflege (jährlich)">3.539,00 €</td>
+                <td data-label="Verhinderungs- &amp; Kurzzeitpflege (monatlich)">294,90 €</td>
+                <td data-label="Entlastungsbetrag (monatlich)">131,00 €</td>
+                <td data-label="Gesamt (monatlich, max.)" class="cell-total">425,90 €</td>
+              </tr>
+              <tr>
+                <th scope="row">Pflegegrad 4</th>
+                <td data-label="Verhinderungs- &amp; Kurzzeitpflege (jährlich)">3.539,00 €</td>
+                <td data-label="Verhinderungs- &amp; Kurzzeitpflege (monatlich)">294,90 €</td>
+                <td data-label="Entlastungsbetrag (monatlich)">131,00 €</td>
+                <td data-label="Gesamt (monatlich, max.)" class="cell-total">425,90 €</td>
+              </tr>
+              <tr>
+                <th scope="row">Pflegegrad 5</th>
+                <td data-label="Verhinderungs- &amp; Kurzzeitpflege (jährlich)">3.539,00 €</td>
+                <td data-label="Verhinderungs- &amp; Kurzzeitpflege (monatlich)">294,90 €</td>
+                <td data-label="Entlastungsbetrag (monatlich)">131,00 €</td>
+                <td data-label="Gesamt (monatlich, max.)" class="cell-total">425,90 €</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="budget-example">
+            <h4>💡 Rechenbeispiel: Pflegegrad 2</h4>
+            <dl class="example-list">
+              <div><dt>Verhinderungs- &amp; Kurzzeitpflege (monatlich)</dt><dd>294,90 €</dd></div>
+              <div><dt>Entlastungsbetrag</dt><dd>+ 131,00 €</dd></div>
+              <div class="example-sum"><dt>Ihr monatliches Budget</dt><dd>425,90 €</dd></div>
+            </dl>
+            <p class="example-note">Oft ganz ohne eigene Zuzahlung. Gerne helfe ich Ihnen kostenfrei und unverbindlich beim Antrag bei Ihrer Pflegekasse.</p>
+          </div>
+
+          <p class="calc-disclaimer">
+            ℹ️ <strong>Hinweis:</strong> Unverbindliche Orientierung, keine Rechtsberatung. Maßgeblich ist immer die Auskunft Ihrer Pflegekasse. Stand der Beträge: Oktober 2026.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seite: Budget-Rechner -->
+    <section class="section calc-section" id="rechner" data-page="rechner">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">Interaktiver Rechner</span>
+          <h2 class="section-title">Ihr mögliches Betreuungs-Budget</h2>
+          <p class="section-desc">Wählen Sie den Pflegegrad und sehen Sie, welche Leistungen der Pflegekasse grundsätzlich in Frage kommen.</p>
+        </div>
+
+        <div class="calculator-card" id="budget-calculator">
+          <div class="calc-inputs">
+            <label class="calc-label" for="pg-1">Wählen Sie den Pflegegrad:</label>
+            <div class="pflegegrad-selector" role="group" aria-label="Pflegegrad Auswahl">
+              <button type="button" class="pg-btn active" data-grade="1" id="pg-1" aria-pressed="true">Pflegegrad 1</button>
+              <button type="button" class="pg-btn" data-grade="2" id="pg-2" aria-pressed="false">Pflegegrad 2</button>
+              <button type="button" class="pg-btn" data-grade="3" id="pg-3" aria-pressed="false">Pflegegrad 3</button>
+              <button type="button" class="pg-btn" data-grade="4" id="pg-4" aria-pressed="false">Pflegegrad 4</button>
+              <button type="button" class="pg-btn" data-grade="5" id="pg-5" aria-pressed="false">Pflegegrad 5</button>
+            </div>
+          </div>
+
+          <div class="calc-results-grid">
+            <div class="calc-result-box primary-result">
+              <span class="result-label">Monatlicher Entlastungsbetrag (§ 45b)</span>
+              <span class="result-value" id="calc-monthly-entlastung">131 €</span>
+              <span class="result-sub" id="calc-monthly-sub">Jeden Monat</span>
+            </div>
+
+            <div class="calc-result-box">
+              <span class="result-label">Verhinderungs- &amp; Kurzzeitpflege (§§ 39, 42)</span>
+              <span class="result-value" id="calc-verhinderung">–</span>
+              <span class="result-sub" id="calc-verhinderung-sub">Erst ab Pflegegrad 2 verfügbar</span>
+            </div>
+
+            <div class="calc-result-box total-result">
+              <span class="result-label">Ihr monatliches Budget insgesamt</span>
+              <span class="result-value highlight" id="calc-total-budget">131 €</span>
+              <span class="result-sub" id="calc-total-sub">Oft ganz ohne eigene Zuzahlung</span>
+            </div>
+          </div>
+
+          <p class="calc-disclaimer">
+            ℹ️ <strong>Hinweis:</strong> Unverbindliche Orientierung, keine Rechtsberatung. Die gesetzlichen Beträge ändern sich regelmäßig; maßgeblich ist immer die Auskunft Ihrer Pflegekasse. Stand der hier genannten Beträge: <span id="calc-stand">Oktober 2026</span>.
+          </p>
+
+          <div class="calc-footer text-center">
+            <p>Möchten Sie wissen, was in Ihrem Fall konkret möglich ist?</p>
+            <a href="#kontakt" class="btn btn-primary" id="calc-apply-btn">Unverbindlich anfragen</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seite: Über uns (Ablauf + Werte gehören zusammen auf eine Seite) -->
+    <section class="section process-section" id="ueber-uns" data-page="ueber-uns">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">Über uns</span>
+          <h2 class="section-title">So kommen wir zusammen – in 4 einfachen Schritten</h2>
+          <p class="section-desc">LebensHelper Alltagsbegleitung ist Ihr persönlicher Ansprechpartner in Wuppertal, Solingen, Remscheid und Umgebung.</p>
+        </div>
+
+        <div class="process-grid">
+          <div class="process-step">
+            <div class="step-number">1</div>
+            <h3>Anruf</h3>
+            <p>Sie rufen mich an oder schreiben mir eine Nachricht per WhatsApp oder E-Mail. Ein kurzer Kontakt genügt.</p>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">2</div>
+            <h3>Kennenlernen</h3>
+            <p>Kostenfreies und unverbindliches Erstgespräch bei Ihnen zu Hause. Wir hören zu, lernen uns kennen und klären Ihre Wünsche in Ruhe.</p>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">3</div>
+            <h3>Antrag</h3>
+            <p>Ich helfe Ihnen beim Antrag bei Ihrer Pflegekasse – kostenfrei, damit Sie Ihre Leistungen vollständig nutzen können.</p>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">4</div>
+            <h3>Los geht’s!</h3>
+            <p>Wir starten – flexibel, herzlich und zuverlässig, in Ihrem Rhythmus und mit einer festen Bezugsperson. Ohne Zeitdruck.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section values-section" data-page="ueber-uns">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">Unsere Werte</span>
+          <h2 class="section-title">Professionell. Vertrauenswürdig. Menschlich.</h2>
+          <p class="section-desc">Diese drei Worte stehen auf unserem Flyer – und sie bestimmen, wie wir arbeiten.</p>
+        </div>
+
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon" aria-hidden="true">🎓</div>
+            <h3>Professionell</h3>
+            <p>Anerkanntes Angebot zur Unterstützung im Alltag nach § 45a SGB XI (NRW). Klare Absprachen, zuverlässige Termine und saubere Abrechnung.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon" aria-hidden="true">🤝</div>
+            <h3>Vertrauenswürdig</h3>
+            <p>Eine feste Bezugsperson, die Sie kennen. Diskretion und Respekt vor Ihrem Zuhause und Ihrer Selbstbestimmung sind für uns selbstverständlich.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon" aria-hidden="true">💚</div>
+            <h3>Menschlich</h3>
+            <p>Wir nehmen uns Zeit – ohne Zeitdruck. Ein offenes Ohr, Geduld und echtes Interesse an dem Menschen, den wir begleiten.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seite: FAQ -->
+    <section class="section faq-section" id="faq" data-page="faq">
+      <div class="container faq-container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">Häufige Fragen</span>
+          <h2 class="section-title">Antworten auf Ihre Fragen</h2>
+        </div>
+
+        <div class="accordion" id="faq-accordion">
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              <span>In welchen Orten sind Sie im Einsatz?</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>Wir sind in <strong>Wuppertal, Solingen, Remscheid und Umgebung</strong> für Sie da. Wenn Sie knapp außerhalb wohnen, fragen Sie gerne trotzdem an – wir schauen, was möglich ist.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              <span>Muss ich die Alltagsbegleitung selbst bezahlen?</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>Nicht unbedingt. Als anerkanntes Angebot nach § 45a SGB XI (NRW) ist eine <strong>Abrechnung über die Pflegekasse möglich</strong>. Wenn Sie einen Pflegegrad von 1 bis 5 haben, steht Ihnen dafür der monatliche Entlastungsbetrag nach § 45b SGB XI zur Verfügung. Reicht dieses Budget für Ihren Betreuungsumfang aus, entstehen für Sie in der Regel keine Zuzahlungen.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              <span>Geht das auch ohne Pflegegrad?</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-body">
+              <p><strong>Ja.</strong> Eine private Buchung ohne Pflegegrad ist jederzeit möglich. Sprechen Sie uns an – wir informieren Sie gerne unverbindlich über unsere Konditionen.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              <span>Wird mein Pflegegeld gekürzt, wenn ich Alltagsbegleitung nutze?</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-body">
+              <p><strong>Nein.</strong> Der Entlastungsbetrag nach § 45b SGB XI ist eine zusätzliche Leistung. Ihr monatlich ausgezahltes Pflegegeld bleibt davon unberührt.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              <span>Kommt immer dieselbe Begleitperson?</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>Ja, Vertrauen und Beständigkeit sind uns wichtig. Wir arbeiten mit dem Prinzip der festen Bezugsperson, damit eine echte Beziehung entstehen kann.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              <span>Bieten Sie auch medizinische Behandlungspflege an?</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>Nein. Wir sind auf die soziale Betreuung, Aktivierung, Haushaltsunterstützung und Alltagsbegleitung spezialisiert. Für medizinische Pflege (z. B. Medikamentengabe oder Wundversorgung) arbeiten wir gerne mit Ihrem ambulanten Pflegedienst zusammen.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              <span>Was kostet das Erstgespräch?</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>Nichts. Die <strong>Erstberatung ist kostenfrei</strong> – auf Wunsch bei Ihnen zu Hause. Sie gehen damit keine Verpflichtung ein.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seite: Kontakt -->
+    <section class="section contact-section" id="kontakt" data-page="kontakt">
+      <div class="container contact-grid">
+        <div class="contact-info-col">
+          <span class="section-subtitle">Kontakt & Beratung</span>
+          <h2 class="section-title">Lassen Sie uns unverbindlich sprechen</h2>
+          <p>Gerne informieren wir Sie unverbindlich über Ihre Möglichkeiten – zur Unterstützung im Alltag und zur Kostenübernahme durch Ihre Pflegekasse.</p>
+
+          <div class="contact-details">
+            <div class="contact-row">
+              <span class="icon-circle" aria-hidden="true">📞</span>
+              <div>
+                <strong>Telefon:</strong>
+                <p><a href="tel:+491772642539">+49 177 2642539</a></p>
+              </div>
+            </div>
+            <div class="contact-row">
+              <span class="icon-circle" aria-hidden="true">💬</span>
+              <div>
+                <strong>WhatsApp:</strong>
+                <p><a href="https://wa.me/491772642539" target="_blank" rel="noopener">+49 177 2642539</a></p>
+              </div>
+            </div>
+            <div class="contact-row">
+              <span class="icon-circle" aria-hidden="true">✉️</span>
+              <div>
+                <strong>E-Mail:</strong>
+                <p><a href="mailto:lebenshelper@gmail.com">lebenshelper@gmail.com</a></p>
+              </div>
+            </div>
+            <div class="contact-row">
+              <span class="icon-circle" aria-hidden="true">🏠</span>
+              <div>
+                <strong>Anschrift:</strong>
+                <p>
+                  LebensHelper Alltagsbegleitung<br>
+                  Schönebecker Straße 44<br>
+                  42283 Wuppertal
+                </p>
+              </div>
+            </div>
+            <div class="contact-row">
+              <span class="icon-circle" aria-hidden="true">📍</span>
+              <div>
+                <strong>Einsatzgebiete:</strong>
+                <p>Wuppertal, Solingen, Remscheid & Umgebung</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-promise-card">
+            <h4>⭐ Mein persönliches Versprechen an Sie</h4>
+            <ul>
+              <li>✓ Ich komme pünktlich und zuverlässig zu Ihnen</li>
+              <li>✓ Ich behandle Sie mit Würde, Respekt und Einfühlungsvermögen</li>
+              <li>✓ Ich helfe Ihnen, Ihre Pflegeleistungen vollständig zu nutzen</li>
+              <li>✓ Ich passe meine Unterstützung flexibel an Ihre Bedürfnisse an</li>
+              <li>✓ Ich bin für Sie da – als verlässliche Unterstützung im Alltag</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="contact-form-col">
+          <div class="form-card">
+            <h3>Kostenfreie Erstberatung anfragen</h3>
+            <p class="text-sm text-muted">Am schnellsten erreichen Sie uns telefonisch oder per WhatsApp. Alternativ füllen Sie das Formular aus – es öffnet eine vorbereitete E-Mail an uns.</p>
+
+            <div class="form-direct-actions">
+              <a href="tel:+491772642539" class="btn btn-primary">📞 Jetzt anrufen</a>
+              <a href="https://wa.me/491772642539" class="btn btn-whatsapp" target="_blank" rel="noopener">💬 Per WhatsApp</a>
+            </div>
+
+            <div class="form-separator"><span>oder per Formular</span></div>
+
+            <form id="consultation-form" novalidate>
+              <div class="form-group">
+                <label for="client-name">Ihr Name / Name des Angehörigen *</label>
+                <input type="text" id="client-name" name="name" class="form-control" placeholder="z. B. Maria Schmidt" required>
+                <div class="error-feedback" id="name-error">Bitte geben Sie Ihren Namen ein.</div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="client-phone">Telefonnummer *</label>
+                  <input type="tel" id="client-phone" name="phone" class="form-control" placeholder="z. B. 0170 1234567" required>
+                  <div class="error-feedback" id="phone-error">Bitte geben Sie eine Telefonnummer an.</div>
+                </div>
+                <div class="form-group">
+                  <label for="client-email">E-Mail-Adresse</label>
+                  <input type="email" id="client-email" name="email" class="form-control" placeholder="z. B. maria@example.de">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="client-city">PLZ / Wohnort *</label>
+                  <input type="text" id="client-city" name="city" class="form-control" placeholder="z. B. 42103 Wuppertal" required>
+                  <div class="error-feedback" id="city-error">Bitte geben Sie Ihren Wohnort an.</div>
+                </div>
+                <div class="form-group">
+                  <label for="client-pflegegrad">Vorhandener Pflegegrad?</label>
+                  <select id="client-pflegegrad" name="pflegegrad" class="form-control">
+                    <option value="unbekannt">Noch unklar / in Beantragung</option>
+                    <option value="1">Pflegegrad 1</option>
+                    <option value="2">Pflegegrad 2</option>
+                    <option value="3">Pflegegrad 3</option>
+                    <option value="4">Pflegegrad 4</option>
+                    <option value="5">Pflegegrad 5</option>
+                    <option value="keiner">Kein Pflegegrad (private Buchung)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Gewünschte Unterstützung (Mehrfachauswahl möglich):</label>
+                <div class="checkbox-grid">
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="services" value="Begleitung im Alltag"> Begleitung im Alltag
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="services" value="Gemeinsame Spaziergänge"> Gemeinsame Spaziergänge
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="services" value="Arzt- und Terminbegleitung"> Arzt- & Terminbegleitung
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="services" value="Einkaufen & Botengänge"> Einkaufen & Botengänge
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="services" value="Unterstützung im Haushalt"> Unterstützung im Haushalt
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="services" value="Gespräche & Aktivierung"> Gespräche & Aktivierung
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="services" value="Entlastung pflegender Angehöriger"> Entlastung für Angehörige
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="services" value="Verhinderungspflege"> Verhinderungspflege
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="services" value="Hilfe beim Antrag bei der Pflegekasse"> Hilfe beim Antrag bei der Pflegekasse
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="services" value="Allgemeine Informationen"> Allgemeine Informationen
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="client-message">Ihre Nachricht / besondere Wünsche (optional)</label>
+                <textarea id="client-message" name="message" class="form-control" rows="3" placeholder="Wie können wir Ihnen oder Ihrem Angehörigen am besten helfen?"></textarea>
+              </div>
+
+              <div class="form-group privacy-check">
+                <label class="checkbox-item">
+                  <input type="checkbox" id="privacy-agreement" required>
+                  <span class="text-xs">Ich stimme der Kontaktaufnahme und der Verarbeitung meiner Angaben gemäß der Datenschutzerklärung zu. *</span>
+                </label>
+                <div class="error-feedback" id="privacy-error">Bitte bestätigen Sie die Datenschutzerklärung.</div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block btn-lg" id="submit-form-btn">
+                <span>E-Mail-Anfrage vorbereiten</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </form>
+
+            <div id="form-success-message" class="success-alert" role="status">
+              <div class="success-icon" aria-hidden="true">✉️</div>
+              <h4>Ihre E-Mail ist vorbereitet</h4>
+              <p>Wir haben Ihr E-Mail-Programm mit allen Angaben geöffnet. <strong>Bitte senden Sie die E-Mail dort noch ab</strong> – erst dann erreicht uns Ihre Anfrage.</p>
+              <p class="text-sm">Hat das nicht geklappt? Rufen Sie uns einfach an unter <a href="tel:+491772642539"><strong>+49 177 2642539</strong></a> oder schreiben Sie an <a href="mailto:lebenshelper@gmail.com">lebenshelper@gmail.com</a>.</p>
+              <button type="button" class="btn btn-secondary btn-sm" id="reset-form-btn">Weitere Anfrage stellen</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div class="logo-text">
+          <span class="logo-title text-white">LebensHelper</span>
+          <span class="logo-sub footer-logo-sub">Ihre Alltagsbegleitung</span>
+        </div>
+        <p class="footer-desc">Anerkanntes Angebot zur Unterstützung im Alltag nach § 45a SGB XI (NRW). Professionell &middot; Vertrauenswürdig &middot; Menschlich.</p>
+        <p class="text-xs text-muted">© 2026 LebensHelper Alltagsbegleitung &middot; Serge Raoul Foadjo Fotso. Alle Rechte vorbehalten.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="#hero">Startseite</a></li>
+          <li><a href="#leistungen">Leistungen</a></li>
+          <li><a href="#pflegekasse">Finanzierung</a></li>
+          <li><a href="#rechner">Budget-Rechner</a></li>
+          <li><a href="#faq">Häufige Fragen</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Rechtliches</h4>
+        <ul class="footer-links">
+          <li><a href="impressum.html" id="link-impressum">Impressum</a></li>
+          <li><a href="datenschutz.html" id="link-datenschutz">Datenschutzerklärung</a></li>
+        </ul>
+        <h4 class="mt-4">Einsatzgebiete</h4>
+        <p class="footer-desc">Wuppertal &middot; Solingen &middot; Remscheid & Umgebung</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Schnellkontakt</h4>
+        <p><strong>Telefon:</strong> <a href="tel:+491772642539">+49 177 2642539</a></p>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/491772642539" target="_blank" rel="noopener">+49 177 2642539</a></p>
+        <p><strong>E-Mail:</strong> <a href="mailto:lebenshelper@gmail.com">lebenshelper@gmail.com</a></p>
+        <p><strong>Web:</strong> <a href="https://alltagsbegleitunglebenshelper.com">alltagsbegleitunglebenshelper.com</a></p>
+        <p class="text-xs text-muted mt-2">Kostenfreie Erstberatung bei Ihnen zu Hause.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Schwebender Kontakt-Button (mobil) -->
+  <a href="https://wa.me/491772642539" class="floating-whatsapp" target="_blank" rel="noopener" aria-label="Kontakt über WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.8 14.17c-.25.69-1.44 1.32-1.99 1.37-.53.05-1.02.24-3.44-.72-2.9-1.14-4.73-4.1-4.87-4.29-.14-.19-1.16-1.54-1.16-2.94 0-1.4.73-2.08 1-2.37.25-.28.55-.35.73-.35.18 0 .37 0 .53.01.17.01.4-.06.62.48.25.59.84 2.04.91 2.19.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.3.37-.42.5-.14.14-.29.29-.12.57.17.28.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.41.28.14.45.12.61-.07.17-.19.7-.82.89-1.1.18-.28.37-.23.62-.14.25.09 1.6.76 1.87.9.28.14.46.21.53.33.07.11.07.65-.18 1.34Z"/></svg>
+  </a>
+
+  <script src="app.js"></script>
+</body>
+</html>

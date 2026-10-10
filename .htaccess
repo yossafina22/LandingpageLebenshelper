@@ -1,0 +1,163 @@
+# ============================================================================
+#  LebensHelper Alltagsbegleitung – Sicherheits- und Serverkonfiguration
+#  Für Apache-Webserver (die meisten deutschen Hoster: IONOS, Strato,
+#  All-Inkl, Hetzner, Mittwald).
+#
+#  Liegt der Hoster auf NGINX, wirkt diese Datei NICHT – dann müssen die
+#  Header im Hoster-Panel oder in der nginx.conf gesetzt werden.
+# ============================================================================
+
+
+# ----------------------------------------------------------------------------
+#  1. HTTPS erzwingen
+#     Jeder Aufruf über http:// wird dauerhaft auf https:// umgeleitet.
+#     ERST AKTIVIEREN, WENN DAS SSL-ZERTIFIKAT EINGERICHTET IST,
+#     sonst ist die Seite nicht mehr erreichbar.
+# ----------------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Variante A – Standard (funktioniert bei den meisten Hostern)
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+  # www entfernen, damit es nur eine kanonische Adresse gibt
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+</IfModule>
+
+
+# ----------------------------------------------------------------------------
+#  2. Sicherheits-Header
+# ----------------------------------------------------------------------------
+<IfModule mod_headers.c>
+
+  # HSTS: Browser merkt sich für ein Jahr, nur noch per HTTPS zu verbinden.
+  # ERST AKTIVIEREN, WENN HTTPS ZUVERLÄSSIG LÄUFT – die Angabe lässt sich
+  # im Browser des Besuchers nicht schnell zurücknehmen.
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+  # Content-Security-Policy
+  # Diese Seite lädt ausschließlich eigene Dateien: keine externen Skripte,
+  # Schriften, Bilder oder Tracker. Deshalb ist eine sehr strenge Regel
+  # möglich. 'unsafe-inline' wird NICHT benötigt.
+  #
+  #   default-src 'self'       nur Dateien von dieser Domain
+  #   script-src  'self'       kein Inline-JavaScript (keine onclick-Attribute)
+  #   style-src   'self'       kein Inline-CSS (kein style="..."-Attribut)
+  #   img-src     'self'       nur eigene Bilder
+  #   font-src    'self'       Schriften liegen lokal
+  #   connect-src 'none'       die Seite macht keine Hintergrundanfragen
+  #   frame-src   'none'       keine eingebetteten Fremdinhalte
+  #   object-src  'none'       kein Flash/Java/Plugin-Inhalt
+  #   base-uri    'self'       <base>-Umleitung unmöglich
+  #   form-action 'self'       Formular kann nicht nach außen umgebogen werden
+  #   frame-ancestors 'none'   Seite darf nicht in fremde iframes (Clickjacking)
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; media-src 'none'; worker-src 'none'; manifest-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+
+  # Verhindert, dass der Browser Dateitypen errät (MIME-Sniffing)
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Clickjacking-Schutz auch für ältere Browser ohne CSP-Unterstützung
+  Header always set X-Frame-Options "DENY"
+
+  # Beim Klick auf externe Links (WhatsApp, Behörden) wird nur die Domain
+  # übertragen, nicht die vollständige URL
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Browser-Funktionen, die diese Seite nicht braucht, werden abgeschaltet
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), interest-cohort=()"
+
+  # Isolation gegen seitenübergreifende Angriffe
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+  Header always set Cross-Origin-Resource-Policy "same-origin"
+
+  # Serverversion nicht preisgeben
+  Header unset X-Powered-By
+  Header always unset X-Powered-By
+
+</IfModule>
+
+
+# ----------------------------------------------------------------------------
+#  3. Verzeichnisse nicht auflisten
+#     Ohne diese Zeile zeigt Apache bei /fonts/ eine Dateiliste an.
+# ----------------------------------------------------------------------------
+Options -Indexes
+
+
+# ----------------------------------------------------------------------------
+#  4. Zugriff auf interne Dateien sperren
+#     Falls versehentlich hochgeladen, sind sie trotzdem nicht abrufbar.
+# ----------------------------------------------------------------------------
+<FilesMatch "(?i)\.(docx?|xlsx?|pptx?|ps1|bat|cmd|sh|zip|rar|7z|bak|old|orig|save|swp|log|ini|conf|sql|env|md)$">
+  Require all denied
+</FilesMatch>
+
+# Dateien, die mit einem Punkt beginnen (.htaccess, .git, .env …)
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+
+# Sicherheitsnetz: Datei ohne Endung (z. B. die leere Datei
+# "WebAlltagsbegleitung" aus dem Projektordner)
+<FilesMatch "^WebAlltagsbegleitung$">
+  Require all denied
+</FilesMatch>
+
+# Versionsverwaltung, falls jemals vorhanden
+RedirectMatch 404 /\.git
+
+
+# ----------------------------------------------------------------------------
+#  5. Komprimierung – schnellere Ladezeiten
+# ----------------------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+  # woff2 ist bereits komprimiert – nicht noch einmal packen
+</IfModule>
+
+
+# ----------------------------------------------------------------------------
+#  6. Browser-Zwischenspeicher
+#     Schriften und Bilder ändern sich praktisch nie, HTML dagegen oft.
+# ----------------------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html                 "access plus 0 seconds"
+  ExpiresByType text/css                  "access plus 1 month"
+  ExpiresByType application/javascript    "access plus 1 month"
+  ExpiresByType image/png                 "access plus 6 months"
+  ExpiresByType image/jpeg                "access plus 6 months"
+  ExpiresByType image/svg+xml             "access plus 6 months"
+  ExpiresByType font/woff2                "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(woff2|png|jpg|jpeg|svg)$">
+    Header set Cache-Control "public, max-age=15552000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+
+# ----------------------------------------------------------------------------
+#  7. Zeichensatz und Dateitypen
+# ----------------------------------------------------------------------------
+AddDefaultCharset UTF-8
+<IfModule mod_mime.c>
+  AddType font/woff2 .woff2
+  AddType image/svg+xml .svg
+  AddType application/manifest+json .webmanifest
+</IfModule>
+
+
+# ----------------------------------------------------------------------------
+#  8. Fehlerseite
+# ----------------------------------------------------------------------------
+ErrorDocument 404 /404.html
