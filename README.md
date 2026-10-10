@@ -62,10 +62,35 @@ dans `index.html` et doit être corrigé en parallèle.
 
 ## Déploiement
 
-Voir `MISE-EN-LIGNE.md` dans le dossier des sources, hors dépôt.
+Le site est hébergé sur **Vercel**, connecté à ce dépôt GitHub.
+**Chaque `git push` sur `main` déclenche un redéploiement automatique**
+en environ une minute. Aucun transfert FTP n'est nécessaire.
 
-⚠️ Ne pas envoyer `.htaccess` avant que le certificat SSL soit actif :
-il force HTTPS et active HSTS, le site deviendrait inaccessible.
+```
+git add -A
+git commit -m "description du changement"
+git push
+```
+
+- Domaine : `alltagsbegleitunglebenshelper.com` (registrar : Checkdomain)
+- DNS : enregistrement A vers l'IP de Vercel. Les enregistrements **MX
+  restent chez Checkdomain** pour la messagerie — ne jamais y toucher.
+- Certificat SSL : émis et renouvelé automatiquement par Vercel
+
+### Configuration selon l'hébergeur
+
+| Fichier | Utilisé par | Rôle |
+|---|---|---|
+| `vercel.json` | **Vercel (actuel)** | en-têtes de sécurité, cache, redirections |
+| `.htaccess` | Apache (Checkdomain…) | équivalent, **ignoré par Vercel** |
+| `.vercelignore` | Vercel | exclut `server.ps1`, `.htaccess`, `README.md` |
+
+Les deux configurations sont conservées : en cas de retour vers un hébergement
+Apache, `.htaccess` reprend son rôle. **Toute modification des en-têtes de
+sécurité doit être répercutée dans les deux fichiers.**
+
+⚠️ Sur un hébergement Apache, ne pas déposer `.htaccess` avant que le
+certificat SSL soit actif : il force HTTPS et active HSTS.
 
 ## Licence
 
